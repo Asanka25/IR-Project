@@ -5,8 +5,10 @@ This project contains React frontend and a Python Flask backend server which des
 
 ## Getting Started
 ### Setting Up Elasticsearch
-Download and run [Elasticsearch](https://www.elastic.co/downloads/elasticsearch).
+1.Download and run [Elasticsearch](https://www.elastic.co/downloads/elasticsearch).
   > This project was made using Elasticsearch version 7.15.0
+2.Install ICU Analysis plugin.
+3.Install Kibana for query operations(optional).
 
 
 ### Setting Up the Index

@@ -16,17 +16,37 @@ stemmer = None
 
 def phrase_queries_basic(query):  #phrase query that matches exact query given
     res = es.search(
-        index=index_name,
+    index=index_name,
         body={
                 "query": {
                     "query_string": {
                     "query": query,
                     "default_operator": "AND"
                     }
+                },
+                    "aggs": {
+                        "relegion_filter": {
+                            "terms": {
+                                "field": "ආගම.keyword",
+                                "size": 5
+                            }
+                        },
+                        "nation_filter": {
+                            "terms": {
+                                "field": "ජාතිය.keyword",
+                                "size": 5
+                            }
+                        },
+                        "birth_filter": {
+                            "terms": {
+                                "field": "උපන් ස්ථානය.keyword",
+                                "size": 5
+                            }
+                        }
+                    }
                 }
-            }
     )
-
+    res["single"] = False
     return res
 
     #get results by collage/university
